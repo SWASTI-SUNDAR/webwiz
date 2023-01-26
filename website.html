@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', monospace;
+        }
+
+        .topnav a {
+            position: sticky;
+            float: left;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: all 0.5s;
+        }
+
+        #mytopnav {
+            font-style: bold;
+        }
+
+        .topnav {
+            background-color: teal;
+            overflow: hidden;
+        }
+
+        #heading1 {
+            position: absolute;
+            top: 10%;
+            left: 25%;
+            transform: translate(50%, -50%);
+            align-content: center;
+        }
+
+        p {
+            position: absolute;
+            top: 15%;
+            left: 25%;
+            font-size: large;
+        }
+
+        #prompt-btn {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            font-size: larger;
+            border-color: aquamarine;
+            border-radius: 5px;
+        }
+
+        #prompt-btn:hover {
+            background-color: aquamarine;
+        }
+
+        #change-bg-btn {
+            position: absolute;
+            top: 25%;
+            left: 35%;
+            font-size: larger;
+            border-color: aquamarine;
+            border-radius: 5px;
+        }
+
+        #change-bg-btn:hover {
+            background-color: aquamarine;
+        }
+
+        #change-heading {
+            position: absolute;
+            top: 25%;
+            left: 45%;
+            font-size: larger;
+            border-color: aquamarine;
+            border-radius: 5px;
+        }
+
+        #change-heading:hover {
+            background-color: aquamarine;
+        }
+
+        #x1 {
+            position: absolute;
+            top: 55%;
+            left: 35%;
+            font-size: 50px;
+            color: red;
+        }
+
+        h5 {
+            position: absolute;
+            top: 32%;
+            left: 25%;
+            color: black;
+            background-color: aqua;
+        }
+
+        #footer {
+            position: absolute;
+            top: 95%;
+            color: red;
+
+        }
+
+        #live_date {
+
+            position: absolute;
+            top: 60%;
+            left: 35%;
+            font-size: 75px;
+
+        }
+
+        #live_time {
+            position: absolute;
+            top: 75%;
+            left: 35%;
+            font-size: 65px;
+        }
+    </style>
+</head>
+
+<body>
+    <h5 id="heading"><i> HEY THIS IS THE OLD HEADING PRESS THE CHANGE HEADING BUTTON TO CHANGE IT</i></h5>
+
+    <div class="topnav" id="my topnav">
+        <b>
+            <a href="#home" class="active">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </b>
+        <h1 id="heading1">WELCOME TO THE WEBSITE</h1>
+        <p>This is a Simple website made for web-wiz induction <br>
+            hope this will make me a part of web-wiz </p>
+        <button id="prompt-btn">PROMPT</button>
+        <script>
+            document.getElementById("prompt-btn").addEventListener("click", function () {
+                alert("Welcome");
+            });
+
+
+        </script>
+        <button id="change-bg-btn">CHANGE BG</button>
+        <script>
+
+            document.getElementById("change-bg-btn").addEventListener("click", function () {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                document.body.style.backgroundColor = color;
+            });
+        </script>
+        <button id="change-heading" onclick="changeHeading()">Change Heading</button>
+        <script>
+            function changeHeading() {
+                setTimeout(function () {
+                    document.getElementById("heading").innerHTML = "HEY THANKS FOR CHANGE THE HEADING";
+                }, 5000);
+            }
+        </script>
+        </script>
+        <h3 id="live_time"></h3>
+        <div class="caption"></div>
+        <p id="x1"> DATE AND TIME</p>
+        <script>
+            let time = document.getElementById("live_time");
+            setInterval(() => {
+
+                let d = new Date();
+
+                time.innerHTML = d.toLocaleTimeString();
+            }, 1000);
+        </script>
+        <h4 id="live_date"></h4>
+        <script>
+            let date = document.getElementById("live_date");
+            setInterval(() => {
+                let e = new Date();
+                date.innerHTML = e.toLocaleDateString();
+            }, 1000);
+        </script>
+
+
+
+        <hr>
+        <footer id="footer"><b>
+                <a href="#">Careers</a>
+                <a href="#">Privacy policy</a>
+                <a href="#">Alumni</a>
+                <a href="#">News</a>
+                <a href="#">Copyright © 2023 </a>
+            </b>
+        </footer>
+</body>
+
+</html>
